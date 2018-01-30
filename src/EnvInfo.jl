@@ -26,7 +26,7 @@ status(packages::AbstractVector{<: AbstractString}) = map(status, packages)
 status() = [status(pkg, v) for (pkg, v) in Pkg.installed()]
 
 function envinfo(packages; include_installed = false)
-    info = Dict(
+    info = Dict{String, Any}(
         "status" => status(packages),
     )
     if include_installed

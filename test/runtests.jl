@@ -9,4 +9,6 @@ end
 
 @testset "save" begin
     @test save("/dev/null", ["EnvInfo", "JSON"]) === nothing
+    @test save("/dev/null", ["EnvInfo", "JSON"],
+               include_installed = true) === nothing
 end
